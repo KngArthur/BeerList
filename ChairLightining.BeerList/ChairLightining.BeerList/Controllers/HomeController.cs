@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 using ChairLightining.BeerList.Models;
 using ChairLightining.BeerList.Data;
 using Microsoft.EntityFrameworkCore;
+using System.Collections;
 
 namespace ChairLightining.BeerList.Controllers
 {
@@ -55,14 +56,23 @@ namespace ChairLightining.BeerList.Controllers
         {
             var context = new BeerListContext();
             var beerList = context.BeerListings
-                                                //.Include(br => br.Brewery)
-                                                //.Include(bs => bs.BeerStyle)
-                                                //.Include(pt => pt.PackageType)
                                                 .OrderBy(bl => bl.BeerStyle)
                                                 .ThenBy(bl => bl.Brewery)
                                                 .ToList();
 
             return beerList;
+        }
+
+        public static IList GetAsKeyValuePairs()
+        {
+            var context = new BeerListContext();
+            var breweryTypes = context.Breweries.Select(bt => new
+            {
+                Value = bt.BreweryId,
+                Text = bt.BreweryName
+            }).ToList();
+
+            return breweryTypes;
         }
 
         //public static List<BeerListing> GetAllByPackageType(int PackageType)
