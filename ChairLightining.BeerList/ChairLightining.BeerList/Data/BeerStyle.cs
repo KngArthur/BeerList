@@ -13,7 +13,7 @@ namespace ChairLightining.BeerList.Data
         }
 
         public int BeerStyleId { get; set; }
-        public string BeerStyle1 { get; set; }
+        public string BeerStyleName { get; set; }
         public string BeerStyleAbriviation { get; set; }
 
         public virtual ICollection<BeerListing> BeerListings { get; set; }

@@ -63,6 +63,13 @@ namespace ChairLightining.BeerList.Controllers
             return beerList;
         }
 
+        public static List<Brewery> GetAll()
+        {
+            var context = new BeerListContext();
+            var breweryTypes = context.Breweries.ToList();
+            return breweryTypes;
+        }
+
         public static IList GetAsKeyValuePairs()
         {
             var context = new BeerListContext();

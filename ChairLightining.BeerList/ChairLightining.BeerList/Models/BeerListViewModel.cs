@@ -21,9 +21,5 @@ namespace ChairLightining.BeerList.Models
         [Display(Name = "IBU")]
         public double? Ibu { get; set; }
         public int PackageType { get; set; }
-
-        public ICollection<BeerStyle> BeerStyles { get; set; }
-        public ICollection<Brewery> Breweries { get; set; }
-        public ICollection<PackageType> PackageTypes { get; set; }
     }
 }

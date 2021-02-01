@@ -75,7 +75,7 @@ namespace ChairLightining.BeerList.Data
             {
                 entity.ToTable("BeerStyle");
 
-                entity.Property(e => e.BeerStyle1)
+                entity.Property(e => e.BeerStyleName)
                     .IsRequired()
                     .HasMaxLength(50)
                     .IsUnicode(false)
